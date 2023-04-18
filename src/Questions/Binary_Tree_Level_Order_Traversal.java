@@ -17,9 +17,11 @@ public class Binary_Tree_Level_Order_Traversal {
             List<Integer> level = new ArrayList<>(levelSize);
             for (int i = 0; i < levelSize; i++) {
                 TreeNode cur = q.poll();
-                if (cur.left != null) q.add(cur.left);
-                if (cur.right != null) q.add(cur.right);
-                level.add(cur.val);
+                if (cur != null && cur.left != null) q.add(cur.left);
+                if (cur != null && cur.right != null) q.add(cur.right);
+                if (cur != null) {
+                    level.add(cur.val);
+                }
             }
             res.add(level);
         }
