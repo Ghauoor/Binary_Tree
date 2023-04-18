@@ -60,10 +60,10 @@ public class BinaryTreeLL {
             BinaryNode presentNode = queue.peek();
             queue.poll();
 
-            if (presentNode == null) {
+            if (presentNode == null) { // Means old level is completely traversed
                 System.out.println();
 
-                if (!queue.isEmpty()) {
+                if (!queue.isEmpty()) {// Means old level is completely traversed
                     queue.add(null);
                 }
             } else {
