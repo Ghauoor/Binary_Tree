@@ -46,9 +46,30 @@ public class BinaryTreeLL {
         System.out.print(node.value + " ");
     }
 
-    //Level Order traversal
+    //Level Order traversal Or BST-->  Breadth-first Search Traversal
     //TC: O(N)
     //SC: O(N)
+
+    /*
+    * Simple Level Order Traversal is
+    * // Level Order
+      void levelOrder() {
+        Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+          BinaryNode presentNode = queue.remove();
+          System.out.print(presentNode.value + " ");
+          if (presentNode.left != null) {
+            queue.add(presentNode.left);
+          }
+          if (presentNode.right != null) {
+            queue.add(presentNode.right);
+          }
+        }
+      }
+    *
+    * */
+
 
     public void levelOrder() {
         Queue<BinaryNode> queue = new LinkedList<>();
