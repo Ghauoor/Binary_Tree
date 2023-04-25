@@ -99,4 +99,30 @@ public class BinaryTreeLL {
             }
         }
     }
+
+    //// Search in Binary Tree
+    //// Using Level Order Traversal
+    //// TC : O(N)
+    //// SC : O(N)
+
+    public void search(String value) {
+        Queue<BinaryNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            BinaryNode present = q.remove();
+            if (present.value == value) {
+                System.out.println("The Value is " + value + " is found in Tree");
+                return;
+            } else {
+                if (present.left != null) {
+                    q.add(present.left);
+                }
+                if (present.right != null) {
+                    q.add(present.right);
+                }
+            }
+        }
+
+        System.out.println("The Value is " + value + " is not found in Tree");
+    }
 }
