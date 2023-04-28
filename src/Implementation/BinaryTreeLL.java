@@ -125,4 +125,66 @@ public class BinaryTreeLL {
 
         System.out.println("The Value is " + value + " is not found in Tree");
     }
+
+    //// Insert Method
+    //// TC: O(N)
+    //// SC: O(N)
+    public void insert(String value) {
+        BinaryNode newNode = new BinaryNode();
+        newNode.value = value;
+
+        if (root == null) {
+            root = newNode;
+            System.out.println("Successfully Insert a new Node at Root");
+            return;
+        }
+
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            BinaryNode presentNode = queue.remove();
+
+            //now check for left or right vacant place
+            if (presentNode.left == null) {
+                presentNode.left = newNode;
+                System.out.println("Successfully Inserted");
+                break;
+            } else if (presentNode.right == null) {
+                presentNode.right = newNode;
+                System.out.println("Successfully Inserted");
+                break;
+            } else {
+                //if donot find any place continue loop through
+                queue.add(presentNode.left);
+                queue.add(presentNode.right);
+            }
+        }
+    }
+
+    //// Deleting a node from binary tree
+    /*
+     * (i)-> Find the Node
+     * (ii)--> find the deepest node
+     * (iii)---> Set the Deepest Node val to current node value
+     * (iV) ----> Delete the deepest Node
+     */
+
+    //Get The Deepest Node
+    public BinaryNode getDeepestNode() {
+        Queue<BinaryNode> queue = new LinkedList<>();
+
+        queue.add(root);
+        BinaryNode presentNode = null;
+        while (!queue.isEmpty()) {
+            presentNode = queue.remove();
+
+            if (presentNode.left != null) {
+                queue.add(presentNode.left);
+            }
+            if (presentNode.right != null) {
+                queue.add(presentNode.right);
+            }
+        }
+        return presentNode;
+    }
 }
