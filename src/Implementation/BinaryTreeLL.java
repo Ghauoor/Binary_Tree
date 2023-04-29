@@ -187,4 +187,28 @@ public class BinaryTreeLL {
         }
         return presentNode;
     }
+
+    public void deleteDeepestNode() {
+        Queue<BinaryNode> queue = new LinkedList<>();
+
+        queue.add(root);
+        BinaryNode preNode, presentNode = null;
+
+        while (!queue.isEmpty()) {
+            preNode = presentNode;
+            presentNode = queue.remove();
+            if (presentNode.left == null) {
+                preNode.right = null;
+                return;
+            } else if (presentNode.right == null) {
+                presentNode.left = null;
+                return;
+            }
+
+            queue.add(presentNode.left);
+            queue.add(presentNode.right);
+        }
+
+    }
+
 }
