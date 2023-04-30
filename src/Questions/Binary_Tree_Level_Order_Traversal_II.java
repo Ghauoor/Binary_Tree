@@ -22,10 +22,10 @@ public class Binary_Tree_Level_Order_Traversal_II {
                 level.add(cur.val);
             }
 
-            res.add(level);
+            res.add(0, level);
         }
         //Reverse the
-        Collections.reverse(res);
+        //Collections.reverse(res);
 
         return res;
     }
