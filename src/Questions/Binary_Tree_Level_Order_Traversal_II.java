@@ -1,6 +1,9 @@
 package Questions;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 //https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/
 public class Binary_Tree_Level_Order_Traversal_II {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
@@ -20,12 +23,14 @@ public class Binary_Tree_Level_Order_Traversal_II {
                 if (cur != null && cur.right != null) q.add(cur.right);
 
                 level.add(cur.val);
+
             }
 
             res.add(0, level);
         }
         //Reverse the
         //Collections.reverse(res);
+
 
         return res;
     }
