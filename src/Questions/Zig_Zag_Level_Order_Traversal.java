@@ -19,8 +19,6 @@ public class Zig_Zag_Level_Order_Traversal {
 
             for (int i = 0; i < currLevel; i++) {
                 TreeNode node = q.poll();
-
-
                 level.add(node.val);
 
                 if (node.left != null) q.add(node.left);
