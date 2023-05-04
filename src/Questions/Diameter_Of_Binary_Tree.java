@@ -20,4 +20,28 @@ public class Diameter_Of_Binary_Tree {
 
         return Math.max(lD, Math.max(rD, comboD));
     }
+
+    // Code for Leet code
+    //https://leetcode.com/problems/diameter-of-binary-tree/description/
+    class Solution {
+        private int height (TreeNode root) {
+            if (root == null) return 0;
+            return Math.max(height(root.left), height(root.right)) + 1;
+        }
+
+        public int diameterOfBinaryTree(TreeNode root) {
+            if (root == null) return 0;
+
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+
+            int lD = diameterOfBinaryTree(root.left);
+            int rD = diameterOfBinaryTree(root.right);
+
+            int comboD = leftHeight + rightHeight;
+
+            return Math.max(comboD, Math.max(lD, rD));
+        }
+    }
+
 }
