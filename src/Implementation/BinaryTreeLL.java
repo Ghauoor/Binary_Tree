@@ -188,6 +188,7 @@ public class BinaryTreeLL {
         return presentNode;
     }
 
+
     public void deleteDeepestNode() {
         Queue<BinaryNode> queue = new LinkedList<>();
 
@@ -210,5 +211,28 @@ public class BinaryTreeLL {
         }
 
     }
+
+    //TC: O(N)
+    //SC: O(N)
+    public void deleteNode(String value) {
+        Queue<BinaryNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            BinaryNode presentNode = queue.remove();
+
+            if (presentNode.value == value) {
+                presentNode.value = getDeepestNode().value;
+                deleteDeepestNode();
+                System.out.println("Node is Deleted...");
+                return;
+            } else {
+                if (presentNode.left != null) queue.add(presentNode.left);
+                if (presentNode.right != null) queue.add(presentNode.right);
+            }
+        }
+        System.out.println("Node is not exist in our Binary Tree");
+    }
+
 
 }
