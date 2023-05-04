@@ -234,5 +234,12 @@ public class BinaryTreeLL {
         System.out.println("Node is not exist in our Binary Tree");
     }
 
+    // Delete Entire Binary Tree
+    public void deleteBinaryTree() {
+        root = null;
+        System.out.println("Binary Tree is Successfully Deleted...");
+    }
+
+
 
 }
