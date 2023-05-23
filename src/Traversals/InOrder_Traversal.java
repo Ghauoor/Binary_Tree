@@ -13,6 +13,7 @@ public class InOrder_Traversal {
         List<Integer> inOrder = new ArrayList<>();
         Stack<TreeNode> stack = new Stack<>();
         TreeNode node = root;
+        // InOrder--> Left Root Right
 
         while (true) {
             if (node != null) {
@@ -28,5 +29,19 @@ public class InOrder_Traversal {
             }
         }
         return inOrder;
+    }
+
+    public List<Integer> inorderTraversalRecurs(TreeNode root) {
+        List<Integer> nodes = new ArrayList<>();
+        inOrder(root, nodes);
+        return nodes;
+    }
+
+    private void inOrder(TreeNode root, List<Integer> nodes) {
+        if (root == null) return;
+
+        inOrder(root.left, nodes);
+        nodes.add(root.val);
+        inOrder(root.right, nodes);
     }
 }
