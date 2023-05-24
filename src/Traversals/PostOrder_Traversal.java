@@ -36,4 +36,18 @@ public class PostOrder_Traversal {
         }
         return nodes;
     }
+    public List<Integer> postorderTraversalRecurse(TreeNode root) {
+        List<Integer> nodes = new ArrayList<>();
+        postorder(root, nodes);
+        return nodes;
+    }
+
+    private void postorder(TreeNode root, List<Integer> nodes) {
+        if (root == null) {
+            return;
+        }
+        postorder(root.left, nodes);
+        postorder(root.right, nodes);
+        nodes.add(root.val);
+    }
 }
