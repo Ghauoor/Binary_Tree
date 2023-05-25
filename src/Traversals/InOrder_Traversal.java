@@ -4,6 +4,7 @@ package Traversals;
 import Questions.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -29,6 +30,23 @@ public class InOrder_Traversal {
             }
         }
         return inOrder;
+    }
+
+    //-----------------------------------------------------------------
+    public List<Integer> inOrder(TreeNode root) {
+        List<Integer> nodes = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                nodes.add(stack.peek().val);
+                root = stack.pop().right;
+            }
+        }
+        return nodes;
     }
 
     public List<Integer> inorderTraversalRecurs(TreeNode root) {
