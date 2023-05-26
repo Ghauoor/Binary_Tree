@@ -36,6 +36,8 @@ public class PostOrder_Traversal {
         }
         return nodes;
     }
+
+    //----------------------------Recursion-------------------------------------------------------------
     public List<Integer> postorderTraversalRecurse(TreeNode root) {
         List<Integer> nodes = new ArrayList<>();
         postorder(root, nodes);
@@ -50,4 +52,38 @@ public class PostOrder_Traversal {
         postorder(root.right, nodes);
         nodes.add(root.val);
     }
+
+    //---------------------------------Single Stack----------------------------------------------
+    public List<Integer> postorderTraversalUsingOneStack(TreeNode root) {
+        ArrayList<Integer> nodes = new ArrayList<>();
+
+        if (root == null) {
+            return nodes;
+        }
+
+        Stack<TreeNode> stack = new Stack<>();
+        while (root != null || !stack.isEmpty()) {
+            if (root != null) {
+                stack.push(root);
+                root = root.left;
+            } else {
+                TreeNode temp = stack.peek().right;
+                if (temp == null) {
+                    temp = stack.peek();
+                    stack.pop();
+                    nodes.add(temp.val);
+
+                    while (!stack.isEmpty() && temp == stack.peek().right) {
+                        temp = stack.peek();
+                        stack.pop();
+                        nodes.add(temp.val);
+                    }
+                } else {
+                    root = temp;
+                }
+            }
+        }
+        return nodes;
+    }
 }
+
