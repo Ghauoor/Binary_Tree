@@ -3,10 +3,12 @@ package Traversals;
 import Questions.TreeNode;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
 //https://leetcode.com/problems/binary-tree-postorder-traversal/description/
+//https://takeuforward.org/data-structure/post-order-traversal-of-binary-tree/
 public class PostOrder_Traversal {
     //Using one stack
     /*
@@ -84,6 +86,28 @@ public class PostOrder_Traversal {
             }
         }
         return nodes;
+    }
+
+    // Easy --------- PostOrder using One Stack------------------------
+    public List<Integer> postorderTraversalOneStackEasy(TreeNode root) {
+        LinkedList<Integer> ans = new LinkedList<>();
+        Stack<TreeNode> stack = new Stack<>();
+
+        if (root == null) return ans;
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode curr = stack.pop();
+            ans.addFirst(curr.val);
+
+            if (curr.left != null) {
+                stack.push(curr.left);
+            }
+            if (curr.right != null) {
+                stack.push(curr.right);
+            }
+        }
+        return ans;
     }
 }
 
