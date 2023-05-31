@@ -1,5 +1,6 @@
 package Questions;
 //https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+//https://takeuforward.org/data-structure/maximum-sum-path-in-binary-tree/
 public class Maximum_Path_Sum {
     public static int maxPathSum(TreeNode root) {
         int[] maxValue = new int[1];
