@@ -27,7 +27,6 @@ public class Same_Tree {
         if (p == null || q == null) {
             return (p == q);
         }
-
         return (p.val == q.val) && isSameTrees(p.left, q.left) && isSameTrees(p.right, q.right);
     }
 }
