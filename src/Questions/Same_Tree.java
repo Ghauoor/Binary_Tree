@@ -20,4 +20,14 @@ public class Same_Tree {
 
         return left && right  && value;
     }
+
+    //-------------------Same Approach with optimize code----------------------
+
+    public boolean isSameTrees(TreeNode p, TreeNode q) {
+        if (p == null || q == null) {
+            return (p == q);
+        }
+
+        return (p.val == q.val) && isSameTrees(p.left, q.left) && isSameTrees(p.right, q.right);
+    }
 }
